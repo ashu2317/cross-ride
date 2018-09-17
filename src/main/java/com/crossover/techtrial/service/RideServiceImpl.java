@@ -4,6 +4,8 @@
 package com.crossover.techtrial.service;
 
 import java.util.Optional;
+
+import com.crossover.techtrial.businessrule.RideBusinessRule;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.crossover.techtrial.model.Ride;
@@ -18,8 +20,11 @@ public class RideServiceImpl implements RideService{
 
   @Autowired
   RideRepository rideRepository;
+  @Autowired
+  private RideBusinessRule rideBusinessRule;
   
   public Ride save(Ride ride) {
+    rideBusinessRule.execute(ride);
     return rideRepository.save(ride);
   }
   

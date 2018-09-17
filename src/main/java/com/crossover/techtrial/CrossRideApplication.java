@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @author crossover
  *
  */
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = "com.crossover.techtrial")
 public class CrossRideApplication {
   public static void main(String[] args) {
     SpringApplication.run(CrossRideApplication.class, args);

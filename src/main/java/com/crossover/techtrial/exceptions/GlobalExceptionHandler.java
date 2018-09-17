@@ -1,6 +1,9 @@
 package com.crossover.techtrial.exceptions;
 
 import java.util.AbstractMap;
+import java.util.Map;
+
+import javassist.tools.web.BadHttpRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -14,6 +17,17 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 public class GlobalExceptionHandler {
 
   private static final Logger LOG = LoggerFactory.getLogger(GlobalExceptionHandler.class);
+
+  /**
+   * Global Exception handler for all exceptions.
+   */
+  @ExceptionHandler
+  public ResponseEntity<Map<String, String>> handle(CrossRideBusinessException exception) {
+    // general exception
+    LOG.error("Exception: Some Business Exception occurred. ", exception);
+
+    return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(exception.getBusinessExceptions());
+  }
 
   /**
    * Global Exception handler for all exceptions.
