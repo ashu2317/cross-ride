@@ -61,8 +61,7 @@ public class RideController {
      * Your Implementation Here. And Fill up topDrivers Arraylist with Top
      * 
      */
-    
-    return ResponseEntity.ok(topDrivers);
+    return ResponseEntity.ok(rideService.findTopDrivers(count, startTime, endTime));
     
   }
   

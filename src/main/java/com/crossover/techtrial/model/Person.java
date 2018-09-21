@@ -25,7 +25,7 @@ public class Person implements Serializable{
   private static final long serialVersionUID = 7401548380514451401L;
   
   public Person() {}
- 
+
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   Long id;
@@ -120,8 +120,8 @@ public class Person implements Serializable{
   public String toString() {
     return "Person [id=" + id + ", name=" + name + ", email=" + email + ", registrationNumber=" + registrationNumber + "]";
   }
-  
-  
+
+
 
 
 }
